@@ -1,4 +1,4 @@
-## r-mobius-cantor-configuration-levi-graph.r
+## r-mobius-kantor-configuration-levi-graph.r
 ## # Unlicense (Ø) 2022 CLP, MR-Amsterdam.
 ## ----------------------------------------------------------------------------
 ## Levi graph of the Möbius-Kantor configuration.
