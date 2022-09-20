@@ -47,8 +47,9 @@ mkc <- set_edge_attr(mkc, name="lty"   , E(mkc), 1L )
 mkc <- set_edge_attr(mkc, name="lty"   , E(mkc)[9,14], c(3L,3L) )
 
 q3 <- sqrt(3)
+##          1  2  5     3      4    8   6  7  
 ltmkc <- c( 0, 1, 1.25, 1.50 , 2, .75 , 1, .50
-          , 0, 0, q3/4, 1    , 0, q3/4, 2, 1  
+          , 0, 0, q3/4, q3/2 , 0, q3/4, q3, q3/2  
           ) 
 dim(ltmkc) <- c(8, 2)
 plot(mkc, layout=ltmkc, edge.width=4, vertex.size=10, sub="Fig.1", vertex.color="green")
