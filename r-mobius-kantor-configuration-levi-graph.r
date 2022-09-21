@@ -8,8 +8,9 @@
 ## DOI: https://doi.org/10.1090/S0002-9904-1950-09407-5 (free access) .
 ##
 ## Galois field GF(3^2) with modulus the irreducible quadratic p(x) = x^2 + x + 2.
-## k.x^2 == -k.x - k.2, k in Z3 
-## Successive powers of the primitive root λ = 10 in GF(3, 2):
+## Multiply times x == shift left an reduce overflow by
+## k.x^2 == -k.x - k.2, k in Z3
+## Successive powers of the primitive root λ = x + 0 (=10) in GF(3, 2):
 ##   (λ1) primitive root            λ = 10, shift left, overflow = 1.
 ##   (λ2) λ*10 = 1 | (0,0) + (-1, -2) = 21, shift left, overflow = 2.
 ##   (λ3) λ*21 = 2 | (1,0) + (-2, -4) = 22, shift left, overflow = 2.
@@ -52,7 +53,7 @@ ltmkc <- c( 0, 1, 1.25, 1.50 , 2, .75 , 1, .50
           , 0, 0, q3/4, q3/2 , 0, q3/4, q3, q3/2  
           ) 
 dim(ltmkc) <- c(8, 2)
-plot(mkc, layout=ltmkc, edge.width=4, vertex.size=10, sub="Fig.1", vertex.color="green")
+plot(mkc, layout=ltmkc, edge.width=4, vertex.size=12, sub="Fig.1", vertex.color="green")
 
 
 ###############################################################################
