@@ -116,13 +116,12 @@ gf_mult <- function(a, b, px=px, q=m) {
 ## create Galois field of order q (GFq).
 ## points in GF(q) == graph vertices.
 if (d > 1) {
-  zero  <- rep(0, d)
   start <- rep(0, d); start[d] <- 1
   alpha <- c(rep(0, d-2), c(1,0))
   nxt   <- start
 
-  GFq <- list(zero) 
-  for (i in seq_len(m^d)+1) {           # Insert zero as first element.
+  GFq <- list(rep(0, d))                # Galois field including zero.
+  for (i in seq_len(m^d)+1) {
     GFq[i] <- list(nxt)
     nxt <- gf_mult(nxt, alpha)          # Shift left and reduce, multiply by ξ.
     if (all(nxt == start)) break        # Full cycle iff polynomial is primitive.
@@ -200,7 +199,6 @@ stopifnot(max(ev) == max(degree(g)))
 stopifnot(nev == 3)
 
 ## ------------------------------------------------------------------------------------------------
-## https://www.win.tue.nl/~aeb/drg/graphs/Paley.html
 ## https://www.win.tue.nl/~aeb/graphs/srg/srgtab.html
 ## SRG parameters.
 ##  v   - number of vertices
@@ -215,11 +213,12 @@ stopifnot(nev == 3)
 ## q 5 9 13 17 25 29 37 41 49 53 61 73 81 89 97 101 109 113 121 125 137 149 157 169 173 181 193 197
 ## α 2 3  3  3  5  4  4  5  7  5  5  5  9  5  6   5   6   7  11   7   7   7   7  13   8   7   7   8
 ## χ 3 3  5  6  5  8 10  9  7 11 13 15  9 18 17  21  19  17  11  18  20  22  23  13  22  26  28  25
+## https://www.win.tue.nl/~aeb/graphs/Paley.html
 ##
-## https://www.win.tue.nl/~aeb/graphs/Brouwer-Haemers.html
 ## Brouwer Haemers graph, v = 81, k = 20,  λ = 1, μ = 6, α = 15, χ = 6 of 7(E van Dam).
 ## Radius = 2, Diameter = 2, Girth = 3.
 ## Automorphisms    : 233,280 (2^6 * 3^6 * 5)
+## https://www.win.tue.nl/~aeb/graphs/Brouwer-Haemers.html
 ##
 ## ------------------------------------------------------------- (vii)
 ## Manual construction of the Paley graph for primes, q = 13.
